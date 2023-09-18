@@ -1,4 +1,3 @@
-from django.utils import translation
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
@@ -17,10 +16,10 @@ class FrontendTranslationView(ListAPIView):
     @swagger_auto_schema(
         manual_parameters=[
             openapi.Parameter(
-                name='key',
+                name="key",
                 in_=openapi.IN_QUERY,
                 type=openapi.TYPE_STRING,
-                description='Key',
+                description="Key",
             )
         ]
     )
@@ -29,12 +28,12 @@ class FrontendTranslationView(ListAPIView):
         serializer = self.get_serializer(self.get_queryset(), many=True)
         data = {}
         for obj in serializer.data:
-            data[obj['key']] = obj['text']
+            data[obj["key"]] = obj["text"]
         return Response(data, status=status.HTTP_200_OK)
 
     def get_queryset(self):
         queryset = models.FrontendTranslation.objects.all()
-        key = self.request.GET.get('key', None)
+        key = self.request.GET.get("key", None)
 
         if key:
             queryset = queryset.filter(key__icontains=key)

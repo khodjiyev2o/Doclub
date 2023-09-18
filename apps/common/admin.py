@@ -16,4 +16,3 @@ class FrontTranslationAdmin(admin.ModelAdmin):
     list_display_links = ("id", "key")
     list_filter = ("created_at", "updated_at")
     search_fields = ("key", "version")
-

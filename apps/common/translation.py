@@ -1,7 +1,7 @@
 # translation.py
-from modeltranslation.translator import TranslationOptions, register
+# from modeltranslation.translator import TranslationOptions, register
 
-from . import models
+# from . import models
 
 
 # @register(models.FrontendTranslation)

@@ -23,12 +23,12 @@ class VersionHistory(BaseModel):
 
 
 class FrontendTranslation(BaseModel):
-    key = models.CharField(_('Key'), max_length=255, unique=True)
-    text = models.CharField(_('Text'), max_length=1024)
+    key = models.CharField(_("Key"), max_length=255, unique=True)
+    text = models.CharField(_("Text"), max_length=1024)
 
     class Meta:
-        verbose_name = _('Frontend translation')
-        verbose_name_plural = _('Frontend translations')
+        verbose_name = _("Frontend translation")
+        verbose_name_plural = _("Frontend translations")
 
     def __str__(self):
         return str(self.key)
