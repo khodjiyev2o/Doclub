@@ -34,7 +34,6 @@ class FrontendTranslationView(ListAPIView):
     def get_queryset(self):
         queryset = models.FrontendTranslation.objects.all()
         key = self.request.GET.get("key", None)
-
         if key:
             queryset = queryset.filter(key__icontains=key)
 
