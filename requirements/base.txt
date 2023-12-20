@@ -7,6 +7,8 @@ drf-yasg
 djangorestframework
 django-filter
 django-modeltranslation
+# compress image
+django-resized==1.0.2
 
 # testing
 factory-boy==3.2.1

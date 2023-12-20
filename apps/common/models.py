@@ -20,3 +20,16 @@ class FrontendTranslation(BaseModel):
 
     def __str__(self):
         return str(self.key)
+
+
+class Tag(BaseModel):
+    title = models.CharField(_("Title"), max_length=255)
+
+    class Meta:
+        verbose_name = _("Hashtag")
+        verbose_name_plural = _("Hashtags")
+        db_table = "hashtag"
+        ordering = ("-id",)
+
+    def __str__(self):
+        return self.title
