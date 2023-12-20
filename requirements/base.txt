@@ -7,6 +7,7 @@ drf-yasg
 djangorestframework
 django-filter
 django-modeltranslation
+Pillow==9.5.0
 # compress image
 django-resized==1.0.2
 

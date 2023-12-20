@@ -22,7 +22,7 @@ class Speaker(BaseModel):
 
 
 class Drug(BaseModel):
-    title = models.CharField(verbose_name=_("Title"))
+    title = models.CharField(verbose_name=_("Title"), max_length=255)
 
     class Meta:
         verbose_name = _("Drug")
@@ -35,7 +35,7 @@ class Drug(BaseModel):
 
 
 class PharmacistCompany(BaseModel):
-    title = models.CharField(verbose_name=_("Title"))
+    title = models.CharField(verbose_name=_("Title"), max_length=255)
 
     class Meta:
         verbose_name = _("Pharmacist Company")
@@ -60,8 +60,8 @@ class CourseFiles(BaseModel):
 
 
 class Course(BaseModel):
-    title = models.CharField(verbose_name=_("Title"))
-    description = models.CharField(verbose_name=_("Description"))
+    title = models.CharField(verbose_name=_("Title"), max_length=255)
+    description = models.CharField(verbose_name=_("Description"), max_length=255)
     image = ResizedImageField(_("Image"), upload_to="course/cover_image/%Y/%m/%d")
     speaker = models.ManyToManyField(to=Speaker, verbose_name=_("Speaker"))
     drugs = models.ManyToManyField(to=Drug, verbose_name=_("Drugs"))
@@ -83,7 +83,7 @@ class Course(BaseModel):
 
 
 class Module(BaseModel):
-    title = models.CharField(verbose_name=_("Title"))
+    title = models.CharField(verbose_name=_("Title"), max_length=255)
     video = models.FileField(_("Video"), upload_to="module/video")
     cover_image = ResizedImageField(_("Cover Image"), upload_to="module/cover_image/%Y/%m/%d")
     tags = models.ManyToManyField(to=Tag, verbose_name=_("Tags"))
@@ -92,7 +92,7 @@ class Module(BaseModel):
     pharmacist_company = models.ManyToManyField(to=PharmacistCompany, verbose_name=_("Pharmacist Company"))
     module_files = models.ManyToManyField(to=CourseFiles, verbose_name=_("Module Files"))
     disclaimer = models.TextField(verbose_name=_("Disclaimer"))
-    course = models.ForeignKey(to=Course, null=True, blank=True, related_name="modules")
+    course = models.ForeignKey(to=Course, on_delete=models.CASCADE, related_name="modules", null=True, blank=True)
 
     class Meta:
         verbose_name = _("Module")
@@ -108,7 +108,7 @@ class TimeCode(BaseModel):
     order = models.IntegerField(verbose_name=_("Order"))
     start_time = models.DurationField(verbose_name=_("Start Time"))
     end_time = models.DurationField(verbose_name=_("End Time"))
-    module = models.ForeignKey(Module, _("Module"))
+    module = models.ForeignKey(Module, verbose_name=_("Module"), on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = _("TimeCode")

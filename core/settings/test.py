@@ -2,7 +2,7 @@ from .base import *  # noqa
 ###################################################################
 # Tests in DEBUG=False run faster !!!
 ###################################################################
-DEBUG = True
+DEBUG = False
 PASSWORD_HASHERS = ["django.contrib.auth.hashers.MD5PasswordHasher"]
 DATABASES = {
     "default": {
