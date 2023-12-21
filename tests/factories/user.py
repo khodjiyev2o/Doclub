@@ -11,7 +11,3 @@ class UserFactory(factory.django.DjangoModelFactory):
     username = factory.Faker("word")
     email = factory.Faker('email')
     password = factory.Faker("password")
-    """
-    use -> user = factory.SubFactory("tests.factories.user.UserFactory") 
-    for Foreign Key to other models
-    """
