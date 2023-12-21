@@ -47,14 +47,7 @@ python manage.py migrate
 
 ```bash
 python manage.py runserver
+
 ```
 
-## Pre-commit  must be installed for all projects
-
-```bash
-pip install pre-commit
-pre-commit install
-```
-
-# [Bakend checklist.](https://ruzimurodovnodirjon.notion.site/ruzimurodovnodirjon/Backend-Checklist-90f8dd9a09744d19a7b43cd0aa77d9ad)you must check your project by checklist
 
